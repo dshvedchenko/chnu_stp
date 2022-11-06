@@ -17,6 +17,7 @@ class Category(models.Model):
         "Категорія", max_length=250, help_text="Максимум 250 символів"
     )
     slug = models.SlugField(u'Слаг')
+    objects = models.Manager()
     class Meta:
         verbose_name = "Категорія для публікаціі"
         verbose_name_plural = "Категорії для публікацій"
@@ -24,6 +25,12 @@ class Category(models.Model):
     def __str__(self):
         return self.category
 
+    def get_absolute_url(self):
+        try:
+            url = reverse('articles-category-list',  kwargs = {'slug': self.slug})
+        except:
+            url = "/"
+        return url
 
 class Article(models.Model):
     title = models.CharField(
