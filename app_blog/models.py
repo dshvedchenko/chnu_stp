@@ -62,7 +62,7 @@ class Article(models.Model):
     def get_absolute_url(self):
         try:
             url = reverse(
-                "news - detail",
+                "news-detail",
                 kwargs=dict(
                     year=self.pub_date.strftime("%Y"),
                     month=self.pub_date.strftime("%m"),

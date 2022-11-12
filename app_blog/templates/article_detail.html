@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% spaceless %}
 
-<head>
-<meta charset="UTF-8">
-<title>{{ item.title }}</title>
-</head>
-
-<body>
 {% load static %}
 <div>
 <ol class="breadcrumb">
@@ -33,5 +29,5 @@
 </div>
 <div class='clearfix'></div>
 </div>
-</body>
-</html>
+{% endspaceless %}
+{% endblock %}
